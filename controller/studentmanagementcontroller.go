@@ -147,7 +147,6 @@ func NewStudentManagementServiceController(e *echo.Echo, req requests.StudentMan
 		uc:   uc,
 		resp: resp,
 	}
-	e.POST("school-vaccine-portal/student-management/students/bulk-upload", studentServiceController.EditStudentRecord)
 	e.POST("school-vaccine-portal/student-management/students", studentServiceController.CreateStudentRecord)
 	e.PATCH("school-vaccine-portal/student-management/students", studentServiceController.EditStudentRecord)
 	e.POST("school-vaccine-portal/student-management/vaccine-records", studentServiceController.CreateVaccineRecord)
