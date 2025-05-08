@@ -60,7 +60,7 @@ func (r *StudentManagementRepository) UpdateStudents(student models.StudentManag
 		toupdate["phone_no"] = student.PhoneNo
 	}
 	selectionstring := fmt.Sprintf("id = %d", student.Id)
-	return r.DB.Table("students").Where(selectionstring).Updates(toupdate).Error
+	return r.DB.Table("student_management").Where(selectionstring).Updates(toupdate).Error
 }
 
 func NewStudentRepositoryHandler(DB *mysql.MysqlConnect) StudentManagementRepositoryHandler {

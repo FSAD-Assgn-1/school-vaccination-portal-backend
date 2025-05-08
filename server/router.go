@@ -58,6 +58,9 @@ func newRouter() *echo.Echo {
 	studentmanagementusecase := usecase.NewStudentManagementUsecaseHandler(studentManagementRepo, studentvaccinationrecordrepo, bulkfilejobrepo, vaccineDriveReqpository)
 	studentmanagementresponse := response.NewStudentManagementResponseHandler()
 	controller.NewStudentManagementServiceController(e, studentmanagementRequest, studentmanagementusecase, studentmanagementresponse)
+	bulkjobsRequest := requests.NewBulkUploadRequestHandler()
+	bulkjobUc := usecase.NewBulkFileJobUsecaseHandler(studentmanagementusecase, bulkfilejobrepo)
+	controller.NewBulkUploadController(e, bulkjobsRequest, bulkjobUc)
 
 	return e
 }
