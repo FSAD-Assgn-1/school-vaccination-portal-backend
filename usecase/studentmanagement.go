@@ -108,7 +108,7 @@ func (v *StudentManagementUsecase) verifyDriveExists(id int, name string) ([]mod
 	if id != 0 {
 		selectionString = fmt.Sprintf("id = %d", id)
 	} else {
-		selectionString = fmt.Sprintf("vaccine_name = %s", name)
+		selectionString = fmt.Sprintf("vaccine_name = '%s'", name)
 	}
 
 	return v.vaccineInventoryRepo.GetVaccineInventory(selectionString)
