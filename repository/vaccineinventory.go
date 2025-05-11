@@ -19,7 +19,7 @@ type Vacci struct {
 }
 
 func (v *Vacci) GetVaccineInventory(filter string) ([]models.VaccineInventory, error) {
-	var drives []models.VaccineInventory
+	drives := []models.VaccineInventory{}
 	var err error
 	if filter == "" {
 		err = v.DB.Table("vaccination_inventory").Order("drive_date ASC").Find(&drives).Error
